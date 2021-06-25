@@ -40,8 +40,13 @@ public class WebServiceConfig{
         return definition;
     }
 
+    @Bean
+    public XsdSchema coursesSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
+    }
 
-    // /ws/school/student.wsdl
+
+    // /ws/school/students.wsdl
     // student-details.xsd
     @Bean(name = "students")
     public DefaultWsdl11Definition defaultWsdl11Definition1(XsdSchema studentsSchema) {
@@ -53,10 +58,6 @@ public class WebServiceConfig{
         return definition;
     }
 
-    @Bean
-    public XsdSchema coursesSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
-    }
 
     @Bean
     public XsdSchema studentsSchema() {

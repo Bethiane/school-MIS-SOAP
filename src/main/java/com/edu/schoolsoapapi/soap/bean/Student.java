@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -20,6 +21,9 @@ public class Student {
     private int id;
     private String name;
     private int age;
+
+    @OneToOne
+    private Course course;
 
     @Override
     public String toString() {
