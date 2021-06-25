@@ -26,6 +26,8 @@ public class WebServiceConfig{
         messageDispatcherServlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean(messageDispatcherServlet, "/ws/school/*");
     }
+
+
     // /ws/school/courses.wsdl
     // course-details.xsd
     @Bean(name = "courses")
@@ -37,8 +39,27 @@ public class WebServiceConfig{
         definition.setSchema(coursesSchema);
         return definition;
     }
+
+
+    // /ws/school/student.wsdl
+    // student-details.xsd
+    @Bean(name = "students")
+    public DefaultWsdl11Definition defaultWsdl11Definition1(XsdSchema studentsSchema) {
+        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+        definition.setPortTypeName("StudentPort");
+        definition.setTargetNamespace("http://schoolsoapapi.edu.com/students");
+        definition.setLocationUri("/ws/school");
+        definition.setSchema(studentsSchema);
+        return definition;
+    }
+
     @Bean
     public XsdSchema coursesSchema() {
         return new SimpleXsdSchema(new ClassPathResource("course-details.xsd"));
+    }
+
+    @Bean
+    public XsdSchema studentsSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("student-details.xsd"));
     }
 }

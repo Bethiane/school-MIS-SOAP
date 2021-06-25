@@ -6,7 +6,7 @@
 //
 
 
-package com.edu.schoolsoapapi.courses;
+package com.edu.schoolsoapapi.students;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -37,8 +37,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "id"
 })
-@XmlRootElement(name = "DeleteCourseDetailsRequest")
-public class DeleteCourseDetailsRequest {
+@XmlRootElement(name = "GetStudentDetailsRequest")
+public class GetStudentDetailsRequest {
 
     protected int id;
 
